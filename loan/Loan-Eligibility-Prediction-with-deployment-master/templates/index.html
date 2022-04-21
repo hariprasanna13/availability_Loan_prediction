@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Eligibility Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body style="background-color:lightskyblue;">
+ <div class="login">
+ <center>
+	<h1>Loan Eligibility Prediction</h1>
+    <br>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        Applicant Income(in lakhs)
+        <br>
+    	<input type="text" name="Applicant Income" placeholder="" required="required" />
+        <br><br>
+        Co-applicant Income(in lakhs)
+        <br>
+        <input type="text" name="Co-applicant Income" placeholder="" required="required" />
+		<br><br>
+		Loan Amount(in lakhs)
+		<br>
+		<input type="text" name="Loan Amount" placeholder="" required="required" />
+    	<br><br>
+    	Repayment Term(in months)  
+    	<br> 
+    	<input type="text" name="Repayment Term" placeholder="" required="required" />
+        <br><br>
+        Do you have better credit history?   
+        <br>
+        <select name="history" id="history">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+        </select>
+        <br><br>
+        Gender
+		<br> 
+		<select name="gender" id="gender">
+        <option value="0">Female</option>
+        <option value="1">Male</option>
+        </select>
+        <br><br>
+        Are you graduated?   
+        <br>
+		<select name="grad" id="grad">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+        </select>
+        <br><br>
+		Marital Status
+		<br> 
+		<select name="marriage" id="marriage">
+        <option value="0">Single</option>
+        <option value="1">Married</option>
+        </select>
+		<br><br>
+		Are you self employeed?   
+        <br>
+		<select name="self_emp" id="self_emp">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+        </select>
+        <br><br>
+		Number of dependents  
+		<br> 
+		<input type="text" name="Number of dependents" placeholder="" required="required" />
+        <br><br>
+        Property Area   
+        <br>
+        <select name="area" id="area">
+        <option value="3">Urban</option>
+        <option value="2">Semi Urban</option>
+        <option value="1">Rural</option>
+        </select>
+        <br><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+</center>
+
+ </div>
+
+
+</body>
+</html>
+
